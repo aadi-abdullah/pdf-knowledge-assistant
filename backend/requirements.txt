@@ -1,0 +1,23 @@
+# ── Web Framework ────────────────────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9       # file uploads
+
+# ── Settings ──────────────────────────────────────────────────────
+pydantic-settings==2.4.0
+
+# ── PDF Processing ────────────────────────────────────────────────
+pdfplumber==0.11.4
+
+# ── Text Chunking ─────────────────────────────────────────────────
+langchain-text-splitters==0.3.0
+
+# ── Embeddings (free, local) ──────────────────────────────────────
+sentence-transformers==3.1.1
+torch==2.4.1                  # CPU-only is fine for embeddings
+
+# ── Vector Store ──────────────────────────────────────────────────
+# pinecone==5.0.1               # Pinecone v3 SDK (serverless free tier)
+
+# ── LLM – Groq ────────────────────────────────────────────────────
+groq==0.11.0

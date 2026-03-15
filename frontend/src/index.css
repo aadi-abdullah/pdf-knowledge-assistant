@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-gray-900/60 backdrop-blur-sm border border-gray-800/60;
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 active:bg-brand-700
+           text-white font-medium px-4 py-2 rounded-lg
+           transition-all duration-150 disabled:opacity-40
+           disabled:cursor-not-allowed flex items-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-gray-400 hover:text-gray-100 hover:bg-gray-800
+           px-3 py-1.5 rounded-lg transition-all duration-150
+           flex items-center gap-1.5 text-sm;
+  }
+
+  .message-user {
+    @apply bg-brand-500/10 border border-brand-500/20 rounded-2xl
+           rounded-tr-sm px-4 py-3 max-w-[80%] ml-auto;
+  }
+
+  .message-ai {
+    @apply glass rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%];
+  }
+
+  .source-card {
+    @apply glass rounded-lg p-3 text-xs space-y-1
+           hover:border-brand-500/40 transition-colors cursor-default;
+  }
+}
+
+/* Markdown styles inside AI messages */
+.prose-ai h1, .prose-ai h2, .prose-ai h3 {
+  @apply font-semibold text-gray-100 mt-3 mb-1;
+}
+.prose-ai p {
+  @apply text-gray-200 leading-relaxed mb-2;
+}
+.prose-ai ul, .prose-ai ol {
+  @apply pl-5 space-y-1 mb-2;
+}
+.prose-ai li {
+  @apply text-gray-200;
+}
+.prose-ai ul li {
+  list-style-type: disc;
+}
+.prose-ai ol li {
+  list-style-type: decimal;
+}
+.prose-ai code {
+  @apply bg-gray-800 text-brand-100 px-1.5 py-0.5 rounded text-xs font-mono;
+}
+.prose-ai pre {
+  @apply bg-gray-900 border border-gray-700 rounded-lg p-3 overflow-x-auto my-2;
+}
+.prose-ai strong {
+  @apply text-white font-semibold;
+}
+.prose-ai blockquote {
+  @apply border-l-2 border-brand-500 pl-3 text-gray-400 italic my-2;
+}
+
+/* Typing indicator dots */
+.typing-dot {
+  @apply w-2 h-2 bg-gray-400 rounded-full;
+  animation: pulseDot 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulseDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40%           { transform: scale(1);   opacity: 1;   }
+}
