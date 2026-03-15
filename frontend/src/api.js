@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/v1',
+  baseURL: 'https://aadi-abdullah-pdf-knowledge-assistant.hf.space/api/v1',
   timeout: 60000, // RAG can be slow on first load
 })
 
